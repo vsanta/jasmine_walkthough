@@ -1,7 +1,7 @@
 describe "JasmineRunner", ->
   beforeEach ->
     jasmine.TrivialReporter = jasmine.createSpy()
-    setFixtures("<textarea id='src_text'></textarea><textarea id='spec_text'></textarea>")
+    setFixtures("<textarea id='src_text'></textarea><textarea id='spec_text'></textarea><button class='run'/>")
 
 
   describe "after instanciated", ->
@@ -19,6 +19,12 @@ describe "JasmineRunner", ->
 
     it "should add a reporter", ->
       expect(jasmine.Env.prototype.addReporter).toHaveBeenCalledWith(jasmine.TrivialReporter.prototype)
+
+    it "binds run on button click", ->
+      spyOn($.fn, "on")
+      new Test.Runner()
+      expect($.fn.on).toHaveBeenCalledWith("click", jasmine.any(Function))
+
 
   describe "sets up textareas", ->
     describe "srcText", ->

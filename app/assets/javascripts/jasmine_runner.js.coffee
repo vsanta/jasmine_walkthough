@@ -15,6 +15,9 @@ class Test.Runner
 
     @env.addReporter(new jasmine.TrivialReporter())
 
+    $(".run").on("click", =>
+      @run())
+
 
   run: ->
     @env.currentRunner_ = new jasmine.Runner(@env);

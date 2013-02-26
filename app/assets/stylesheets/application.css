@@ -12,4 +12,6 @@
  *= require monokai
  *= require_tree .
  */
-
+.bottom{
+    margin: 20px 0;
+}
