@@ -1,14 +1,16 @@
 <div class="row-fluid">
     <div class="span5">
         <p>Your source code</p>
-        <textarea id="src_text" rows="10" cols="30"></textarea>
+        <textarea id="src_text" rows="10" cols="30">window.Jasmine = {
+  isAwesome: true
+};</textarea>
     </div>
 
     <div class="span5">
         <p>Your test code</p>
         <textarea id="spec_text" rows="10" cols="30">describe("Jasmine", function(){
   it("should be awesome", function(){
-    expect(true).toBeTruthy();
+    expect(window.Jasmine.isAwesome).toBeTruthy();
   });
 });</textarea>
     </div>
