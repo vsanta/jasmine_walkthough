@@ -24,3 +24,6 @@
 .idea/vcs.xml
 .idea/workspace.xml
 log/.gitkeep
+.DS_Store
+vendor/.DS_Store
+vendor/assets/.DS_Store
