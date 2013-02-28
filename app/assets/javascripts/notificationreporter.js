@@ -12,15 +12,15 @@
      *
      * Usage:
      *
-     * jasmine.getEnv().addReporter(new jasmine.TapReporter());
+     * jasmine.getEnv().addReporter(new jasmine.NotificationReporter());
      * jasmine.getEnv().execute();
      */
-    var TapReporter = function() {
+    var NotificationReporter = function() {
         this.started = false;
         this.finished = false;
     };
 
-    TapReporter.prototype = {
+    NotificationReporter.prototype = {
 
         reportRunnerStarting: function(runner) {
             this.started = true;
@@ -46,7 +46,6 @@
 
             this.passed_asserts += results.passedCount;
             this.executed_asserts += results.totalCount;
-
             if (passed) {
                 this.passed_specs++;
                 resultText = "ok";
@@ -62,7 +61,33 @@
                 }
             }
 
-            this.log(resultText +" "+ (spec.id + 1) +" - "+ spec.suite.description +" : "+ spec.description + errorMessage);
+            this.notify(resultText, (spec.id + 1), spec.suite.description, spec.description, errorMessage, passed );
+        },
+
+        notify: function(resultText, id, suiteDescription, description, errorMessage, passed){
+            if (passed){
+                this.notifyGreen();
+            }else{
+                this.notifyRed(resultText, errorMessage);
+            }
+        },
+        notifyGreen: function(){
+            $.gritter.add({
+                title: "Congratualations!",
+                text: "Your tests are green! Now you're ready to continue. Refactor you're code or create a new test",
+                class_name: "green",
+                sticky: true,
+                time: 10000
+            });
+        },
+        notifyRed: function(resultText, errorMessage){
+            $.gritter.add({
+                title: "You have some fixing to do!",
+                text: errorMessage,
+                class_name: "red",
+                sticky: true,
+                time: 10000
+            });
         },
 
         reportRunnerResults: function(runner) {
@@ -89,5 +114,5 @@
     };
 
     // export public
-    jasmine.TapReporter = TapReporter;
+    jasmine.NotificationReporter = NotificationReporter;
 })();

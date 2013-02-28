@@ -15,7 +15,9 @@
 //= require twitter/bootstrap
 //= require codemirror
 //= require javascript_mode
+//= require jquery.gritter
 //= require jasmine
 //= require jasmine-html
+//= require notificationreporter
 //= require jasmine_runner
 //

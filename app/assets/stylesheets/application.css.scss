@@ -10,8 +10,25 @@
  *
  *= require codemirror
  *= require monokai
+ *= require jquery.gritter
  *= require_tree .
  */
 .bottom{
     margin: 20px 0;
+}
+
+.green{
+    background-color: #5bb75b;
+    border-radius: 3px;
+}
+
+.red {
+    background-color: #ee5f5b;
+    border-radius: 3px;
+
+}
+.gritter-close{
+  background-image: image-url('gritter.png') ;
+  position: static;
+  float: right
 }

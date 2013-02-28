@@ -13,7 +13,7 @@ class Test.Runner
     @srcText = CodeMirror.fromTextArea(@srcTextarea(), @_codemirrorOptions)
     @specText = CodeMirror.fromTextArea(@specTextarea(), @_codemirrorOptions)
 
-    @env.addReporter(new jasmine.TrivialReporter())
+    @env.addReporter(new jasmine.NotificationReporter())
 
     $(".run").on("click", =>
       @run())
