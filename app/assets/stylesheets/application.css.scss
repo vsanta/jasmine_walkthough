@@ -19,16 +19,25 @@
 
 .green{
     background-color: #5bb75b;
-    border-radius: 3px;
 }
 
 .red {
     background-color: #ee5f5b;
-    border-radius: 3px;
-
 }
+
+.green, .red{
+  border-radius: 3px;
+  position: relative;
+}
+
+.gritter-without-image{
+  max-height: 150px;
+  max-width: 300px;
+  overflow: scroll;
+}
+
 .gritter-close{
+  margin-left: 266px;
   background-image: image-url('gritter.png') ;
-  position: static;
-  float: right
+  position: absolute;
 }

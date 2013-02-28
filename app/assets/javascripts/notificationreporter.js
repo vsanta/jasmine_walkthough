@@ -62,9 +62,11 @@
             }
 
             this.notify(resultText, (spec.id + 1), spec.suite.description, spec.description, errorMessage, passed );
+//            this.log(resultText +" "+ (spec.id + 1) +" - "+ spec.suite.description +" : "+ spec.description + errorMessage);
         },
 
         notify: function(resultText, id, suiteDescription, description, errorMessage, passed){
+            console.log(resultText, id, suiteDescription, description, errorMessage, passed);
             if (passed){
                 this.notifyGreen();
             }else{
